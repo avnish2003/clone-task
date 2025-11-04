@@ -19,12 +19,13 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: ['https://stupendous-nougat-f12f8d.netlify.app'], // your frontend live URL
+    origin: ['https://thriving-swan-4fc2ed.netlify.app'], 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
 );
+
 
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
