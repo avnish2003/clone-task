@@ -1,10 +1,13 @@
 import axios from 'axios';
+
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://clone-task-2.onrender.com/api', 
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -17,6 +20,8 @@ api.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+// ⚙️ Handle expired token or unauthorized response
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -30,4 +35,3 @@ api.interceptors.response.use(
 );
 
 export default api;
-
